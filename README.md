@@ -6,7 +6,9 @@
 
 ## Installation
 1. Run `composer install`
-2. Run `npm run build`
+2. Copy `.env.example` to `.env`
+3. Run `npm run build`
+4. Run `php artisan key:generate`
 
 ## Launch
 1. Run `php artisan serve`
