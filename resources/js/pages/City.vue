@@ -2,7 +2,7 @@
   <div v-if="isLoading">Loading...</div>
   <div v-else-if="error">
     <div class="bg-red-500 text-white p-4 rounded-md mt-4">
-      <h2 class="text-lg mb-2">Error: City not found or weather information for it can't be received</h2>
+      <h2 class="text-lg mb-2">Sorry, we can't get weather conditions for {{ cityName }}</h2>
     </div>
     <div class="mt-8">
       <h1 class="text-xl font-bold mb-4">Check weather conditions in these cities instead:</h1>
@@ -41,6 +41,7 @@ export default {
       error: false,
       isLoading: false,
       cities: ['London', 'Birmingham', 'Leeds', 'Glasgow'],
+      cityName: null
     };
   },
   methods: {
@@ -68,8 +69,8 @@ export default {
     },
   },
   created() {
-    const city = this.$route.params.name;
-    this.getWeatherData(city);
+    this.cityName = this.$route.params.name;
+    this.getWeatherData(this.cityName);
   },
   watch: {
     '$route.params.name': function(newCityName, oldCityName) {

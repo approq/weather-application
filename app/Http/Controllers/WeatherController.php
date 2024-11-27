@@ -28,9 +28,13 @@ class WeatherController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
-        [$lat, $lon] = $this->openWeatherService->getCityCoordinates($city);
-        $weatherConditions = $this->openWeatherService->getWeatherConditions($lat, $lon);
+        try {
+            [$lat, $lon] = $this->openWeatherService->getCityCoordinates($city);
+            $weatherConditions = $this->openWeatherService->getWeatherConditions($lat, $lon);
 
-        return response()->json($weatherConditions, 200);
+            return response()->json($weatherConditions, 200);
+        } catch (Exception $e) {
+            return response()->json(['error' => "Sorry, we can't get weather conditions for " . $city], 400);
+        }
     }
 }
