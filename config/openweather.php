@@ -67,4 +67,9 @@ return [
      */
 
     'temp_format' => 'c',
+
+    /**
+     * Conversion factor for wind form meter/sec to miles/hour
+     */
+    'mps_to_mph_ratio' => 2.23694,
 ];
