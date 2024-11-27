@@ -6,8 +6,9 @@ const routes = [
         component: () => import("./Pages/Home.vue"),
     },
     {
-        path: "/test",
-        component: () => import("./Pages/Test.vue"),
+        path: "/city/:name",
+        component: () => import("./Pages/City.vue"),
+        props: true
     },
 ];
 

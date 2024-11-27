@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Landscape - Test task</title>
+        <title>{{ config('app.name') }}</title>
 
-        @vite(['resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div id="app"></div>
+    <body class="antialiased dark bg-gray-900">
+        <div id="app" class="flex flex-col min-h-screen"></div>
     </body>
 </html>
